@@ -1,119 +1,88 @@
 
-// Задание 1: Имя и возраст
-let firstName = "Аманбол";
-let lastName = "Титов";
-let age = 30;
+// Задание 1
+let student = {
+  name: prompt("Введите имя:"),
+  age: Number(prompt("Введите возраст:")),
+  subject: prompt("Введите предмет:"),
+  grade: prompt("Введите оценку:")
+};
 
-console.log(`Меня зовут ${firstName} ${lastName}, и мне ${age} лет`);
 
-//Задание 2: Город
-let city = "Астана";
+console.log("Данные после ввода:");
+console.log(student);
 
-console.log("Я родом из города " + city);
 
-//Задание 3: password
+student.age += 5;
 
-let password = "12345";
 
-let hasAccess = password !== "";
+console.log("Данные после увеличения возраста на 5:");
+console.log(student);
 
-console.log(password);
-console.log(hasAccess);
 
-//Задание 4
+console.log("Имя:", student.name);
+console.log("Возраст:", student.age);
+console.log("Предмет:", student.subject);
+console.log("Оценка:", student.grade);
 
-let isMember = false;
+// Задание 2
+const movies = [
+  { title: "Начало", director: "Кристофер Нолан", year: 2010, genre: "фантастика" },
+  { title: "Форрест Гамп", director: "Роберт Земекис", year: 1994, genre: "драма" },
+  { title: "Криминальное чтиво", director: "Квентин Тарантино", year: 1994, genre: "боевик" },
+  { title: "Зеленая миля", director: "Фрэнк Дарабонт", year: 1999, genre: "триллер" },
+  { title: "Жизнь прекрасна", director: "Роберто Бениньи", year: 1997, genre: "комедия/драма" },
+];
 
-let isMemberString = isMember.toString();
+console.log("Режиссёр второго фильма:", movies[1].director);
 
-console.log(isMemberString);
-console.log(typeof isMemberString);
+console.log("Жанр четвёртого фильма:", movies[3].genre);
 
-//Задание 5
-let cartItems = 0;
 
-// Логикалық мәнге түрлендіру
-let isCartNotEmpty = Boolean(cartItems);
 
-console.log(isCartNotEmpty);  //cartItems = 0 болғандықтан, бұл мән Boolean(0) кезінде false-қа айналады.
-//Себебі 3 — true, яғни корзина бос емес
+// Задание 3
+let shoppingList = ["яблоки", "бананы", "молоко", "сыр", "хлеб", "шоколад"];
+console.log("Исходный список покупок:", shoppingList);
 
-//Задание 6
-let averageScore = 89.75695;
+shoppingList.unshift("апельсины");
+console.log("После добавления в начало:", shoppingList);
 
-// Бір ондық таңбаға дейін дөңгелектеу
-averageScore = Number(averageScore.toFixed(1));
+shoppingList.pop();
+console.log("После удаления последнего товара:", shoppingList);
 
-console.log(averageScore);
+shoppingList.splice(2, 1, "йогурт", "масло");
+console.log("После замены третьего элемента:", shoppingList);
 
-//Задание 7
-let greetingMessage = "      Приветствуем вас в мире программирования!        ";
+// Задание 4
+const numbers = [52, 31, 9, 85, 31, 45];
+let sum = 0;
+let i = 0;
 
-// 1. Бастапқы және соңғы пробелдерді жою
-let trimmedMessage = greetingMessage.trim();
-console.log("Без пробелов:", trimmedMessage);
-
-// 2. Жоғарғы регистрге айналдыру
-let upperCaseMessage = trimmedMessage.toUpperCase();
-console.log("В верхнем регистре:", upperCaseMessage);
-
-// 3. "программирования" сөзін тексеру
-let containsWord = trimmedMessage.includes("программирования");
-console.log("Содержит слово 'программирования':", containsWord);
-
-//Задание 8
-let ageInput = prompt("Введите ваш возраст:");
-
-if (ageInput === null || ageInput.trim() === "") {
-  console.log("Пожалуйста, введите возраст.");
-} else if (isNaN(ageInput)) {
-  console.log("Недопустимый формат. Введите число.");
-} else {
-  let age = Number(ageInput);
-  if (age < 18) {
-    console.log("Доступ ограничен. Вам меньше 18 лет.");
-  } else {
-    console.log("Добро пожаловать!");
-  }
+while (i < numbers.length) {
+  sum += numbers[i];
+  i++;
 }
 
-//Задание 9
+console.log(`Сумма чисел: ${sum}`);
 
-let secretNumber = 7;
+// Задание 5
+const books = [
+  { title: "To Kill a Mockingbird", author: "Harper Lee", numberOfPages: 281, genre: "Fiction", awards: ["Pulitzer Prize", "Brotherhood Award", "Paperback of the Year"] },
+  { title: "1984", author: "George Orwell", numberOfPages: 328, genre: "Dystopian", awards: ["Prometheus Hall of Fame Award", "Time's Top 100 Novels"] },
+  { title: "The Great Gatsby", author: "F. Scott Fitzgerald", numberOfPages: 180, genre: "Classic", awards: ["Modern Library's Top 100", "National Book Award Nominee"] },
+  { title: "Moby Dick", author: "Herman Melville", numberOfPages: 635, genre: "Adventure", awards: ["Regarded as a Great American Novel", "Part of the Western Canon"] },
+  { title: "Pride and Prejudice", author: "Jane Austen", numberOfPages: 432, genre: "Romance", awards: ["BBC's Big Read", "Guardian's 100 Best Novels"] }
+];
 
-// Просим пользователя ввести число от 1 до 10
-let userInput = prompt("Введите число от 1 до 10:");
+for (let i = 0; i < books.length; i++) {
+  console.log(`Title: ${books[i].title}`);
+  console.log(`Author: ${books[i].author}`);
+  console.log(`Pages: ${books[i].numberOfPages}`);
+  console.log(`Genre: ${books[i].genre}`);
+  console.log("Awards:");
 
-// Преобразуем введённое значение в число
-let userNumber = Number(userInput);
+  for (let j = 0; j < books[i].awards.length; j++) {
+    console.log(`- ${books[i].awards[j]}`);
+  }
 
-// Проверяем число
-if (userNumber === secretNumber) {
-    alert("Поздравляем! Вы угадали число!");
-} else if (userNumber > secretNumber) {
-    alert("Слишком большое число!");
-} else if (userNumber < secretNumber) {
-    alert("Слишком маленькое число!");
-} 
-//Задание 10
-// Запрашиваем время суток
-let timeOfDay = prompt("Введите время суток (утро, день, вечер):");
-
-// Проверяем корректность ввода
-if (typeof timeOfDay !== "string" || timeOfDay.trim() === "") {
-    alert("Ошибка: введите корректное время суток!");
-} else {
-    // Приводим ввод к нижнему регистру, чтобы не зависеть от регистра
-    timeOfDay = timeOfDay.toLowerCase().trim();
-
-    // Выбираем напиток в зависимости от времени суток
-    if (timeOfDay === "утро") {
-        alert("Рекомендуем выпить кофе ☕");
-    } else if (timeOfDay === "день") {
-        alert("Рекомендуем выпить чай 🍵");
-    } else if (timeOfDay === "вечер") {
-        alert("Рекомендуем горячий шоколад 🍫");
-    } else {
-        alert("Ошибка: введите утро, день или вечер!");
-    }
+  console.log("----------------------");
 }
